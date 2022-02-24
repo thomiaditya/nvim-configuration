@@ -5,6 +5,8 @@ opt.number = true
 opt.relativenumber = true
 opt.mouse = "a"
 opt.syntax = "on"
+opt.termguicolors = true
+vim.cmd "colorscheme dracula"
 
 -- Indentation
 opt.autoindent = true
