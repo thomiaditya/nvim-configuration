@@ -86,7 +86,8 @@ force_inactive.filetypes = {
   'packer',
   'startify',
   'fugitive',
-  'fugitiveblame'
+  'fugitiveblame',
+	'dashboard'
 }
 
 force_inactive.buftypes = {
