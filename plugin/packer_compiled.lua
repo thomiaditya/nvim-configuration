@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
   },
+  ["nvim-gps"] = {
+    loaded = true,
+    path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/nvim-gps",
+    url = "https://github.com/SmiteshP/nvim-gps"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",

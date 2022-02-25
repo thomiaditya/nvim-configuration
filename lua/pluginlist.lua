@@ -21,6 +21,10 @@ local plugins = {
 		packer = {"lewis6991/impatient.nvim"}
 	},
 	{
+		name = "nvim-gps",
+		packer = {"SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter"}
+	},
+	{
 		name = "feline",
 		packer = {"feline-nvim/feline.nvim", requires = {"kyazdani42/nvim-web-devicons", opt = true}}
 	},
