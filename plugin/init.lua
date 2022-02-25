@@ -3,6 +3,7 @@ require("utils.loadpacker")
 
 -- Spesify all of plugin configs that need to be loaded in runtime. You can find config file on lua/plugins/config
 local configs = {
+	"dashboard",
 	"treesitter",
 	"nvim-tree",
 	"gitsigns",
