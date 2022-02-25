@@ -44,6 +44,12 @@ local plugins = {
 		name = "treesitter",
 		packer = {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
 	},
+
+	{
+		name = "dashboard",
+		packer = {"glepnir/dashboard-nvim"}
+	},
+
 }
 
 return plugins

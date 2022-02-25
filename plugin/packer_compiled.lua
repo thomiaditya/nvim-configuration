@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["dashboard-nvim"] = {
+    loaded = true,
+    path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
+    url = "https://github.com/glepnir/dashboard-nvim"
+  },
   dracula = {
     loaded = true,
     path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/dracula",
