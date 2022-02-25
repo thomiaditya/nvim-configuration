@@ -5,7 +5,8 @@ require("utils.loadpacker")
 local configs = {
 	"treesitter",
 	"nvim-tree",
---	"feline",
+	"gitsigns",
+	"feline",
 	"telescope",
 }
 

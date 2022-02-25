@@ -14,19 +14,19 @@ local components = {
 }
 
 local colors = {
-  bg = '#282828',
-  black = '#282828',
-  yellow = '#d8a657',
-  cyan = '#89b482',
+  bg = '#282a36',
+  black = '#282a36',
+  yellow = '#f1fa8c',
+  cyan = '#8be9fd',
   oceanblue = '#45707a',
-  green = '#a9b665',
-  orange = '#e78a4e',
+  green = '#50fa7b',
+  orange = '#50fa7b',
   violet = '#d3869b',
   magenta = '#c14a4a',
-  white = '#a89984',
-  fg = '#a89984',
-  skyblue = '#7daea3',
-  red = '#ea6962',
+  white = '#f8f8f2',
+  fg = '#f8f8f2',
+  skyblue = '#8be9fd',
+  red = '#ff5555',
 }
 
 local vi_mode_colors = {
@@ -97,7 +97,7 @@ force_inactive.buftypes = {
 
 -- vi-mode
 components.active[1][1] = {
-  provider = ' NV-IDE ',
+  provider = ' NEOVIM ',
   hl = function()
     local val = {}
 
@@ -109,6 +109,7 @@ components.active[1][1] = {
   end,
   right_sep = ' '
 }
+
 -- vi-symbol
 components.active[1][2] = {
   provider = function()
@@ -123,18 +124,28 @@ components.active[1][2] = {
   end,
   right_sep = ' '
 }
+
 -- filename
 components.active[1][3] = {
-  provider = function()
-    return vim.fn.expand("%:F")
-  end,
+--  provider = function()
+--    return vim.fn.expand("%:F")
+--  end,
+	provider = {
+		name = 'file_info',
+		opts = {
+			type = 'unique',
+			colored_icon = false,
+			file_modified_icon = '',
+			file_readonly_icon  = '',
+		},
+	},
   hl = {
     fg = 'white',
     bg = 'bg',
     style = 'bold'
   },
   right_sep = {
-    str = ' > ',
+    str = ' -> ',
     hl = {
       fg = 'white',
       bg = 'bg',
@@ -142,6 +153,7 @@ components.active[1][3] = {
     },
   }
 }
+
 -- nvimGps
 components.active[1][4] = {
   provider = function() return gps.get_location() end,
@@ -152,7 +164,7 @@ components.active[1][4] = {
     style = 'bold'
   }
 }
-
+ 
 -- MID
 
 -- gitBranch
@@ -164,6 +176,7 @@ components.active[2][1] = {
     style = 'bold'
   }
 }
+
 -- diffAdd
 components.active[2][2] = {
   provider = 'git_diff_added',
@@ -173,6 +186,7 @@ components.active[2][2] = {
     style = 'bold'
   }
 }
+
 -- diffModfified
 components.active[2][3] = {
   provider = 'git_diff_changed',
@@ -182,6 +196,7 @@ components.active[2][3] = {
     style = 'bold'
   }
 }
+
 -- diffRemove
 components.active[2][4] = {
   provider = 'git_diff_removed',
@@ -191,6 +206,7 @@ components.active[2][4] = {
     style = 'bold'
   },
 }
+
 -- diagnosticErrors
 components.active[2][5] = {
   provider = 'diagnostic_errors',
@@ -200,6 +216,7 @@ components.active[2][5] = {
     style = 'bold'
   }
 }
+
 -- diagnosticWarn
 components.active[2][6] = {
   provider = 'diagnostic_warnings',
@@ -209,6 +226,7 @@ components.active[2][6] = {
     style = 'bold'
   }
 }
+
 -- diagnosticHint
 components.active[2][7] = {
   provider = 'diagnostic_hints',
@@ -218,6 +236,7 @@ components.active[2][7] = {
     style = 'bold'
   }
 }
+
 -- diagnosticInfo
 components.active[2][8] = {
   provider = 'diagnostic_info',
@@ -240,36 +259,43 @@ components.active[3][1] = {
   },
   right_sep = ' '
 }
+
 -- fileIcon
-components.active[3][2] = {
-  provider = function()
-    local filename = vim.fn.expand('%:t')
-    local extension = vim.fn.expand('%:e')
-    local icon  = require'nvim-web-devicons'.get_icon(filename, extension)
-    if icon == nil then
-      icon = ''
-    end
-    return icon
-  end,
-  hl = function()
-    local val = {}
-    local filename = vim.fn.expand('%:t')
-    local extension = vim.fn.expand('%:e')
-    local icon, name  = require'nvim-web-devicons'.get_icon(filename, extension)
-    if icon ~= nil then
-      val.fg = vim.fn.synIDattr(vim.fn.hlID(name), 'fg')
-    else
-      val.fg = 'white'
-    end
-    val.bg = 'bg'
-    val.style = 'bold'
-    return val
-  end,
-  right_sep = ' '
-}
+-- components.active[3][2] = {
+--   provider = function()
+--     local filename = vim.fn.expand('%:t')
+--     local extension = vim.fn.expand('%:e')
+--     local icon  = require'nvim-web-devicons'.get_icon(filename, extension)
+--     if icon == nil then
+--       icon = ''
+--     end
+--     return icon
+--   end,
+--   hl = function()
+--     local val = {}
+--     local filename = vim.fn.expand('%:t')
+--     local extension = vim.fn.expand('%:e')
+--     local icon, name  = require'nvim-web-devicons'.get_icon(filename, extension)
+--     if icon ~= nil then
+--       val.fg = vim.fn.synIDattr(vim.fn.hlID(name), 'fg')
+--     else
+--       val.fg = 'white'
+--     end
+--     val.bg = 'bg'
+--     val.style = 'bold'
+--     return val
+--   end,
+--   right_sep = ' '
+-- }
+
 -- fileType
-components.active[3][3] = {
-  provider = 'file_type',
+components.active[3][2] = {
+  provider = {
+		name = 'file_type',
+		opts = {
+			filetype_icon = false,
+		},
+	},
   hl = function()
     local val = {}
     local filename = vim.fn.expand('%:t')
@@ -286,8 +312,9 @@ components.active[3][3] = {
   end,
   right_sep = ' '
 }
+
 -- fileSize
-components.active[3][4] = {
+components.active[3][3] = {
   provider = 'file_size',
   enabled = function() return vim.fn.getfsize(vim.fn.expand('%:t')) > 0 end,
   hl = {
@@ -297,31 +324,56 @@ components.active[3][4] = {
   },
   right_sep = ' '
 }
--- fileFormat
-components.active[3][5] = {
-  provider = function() return '' .. vim.bo.fileformat:upper() .. '' end,
-  hl = {
-    fg = 'white',
-    bg = 'bg',
-    style = 'bold'
-  },
-  right_sep = ' '
-}
+-- 
+-- -- fileFormat
+-- components.active[3][4] = {
+--   provider = function() return '' .. vim.bo.fileformat:upper() .. '' end,
+--   hl = {
+--     fg = 'white',
+--     bg = 'bg',
+--     style = 'bold'
+--   },
+--   right_sep = ' '
+-- }
+-- 
 -- fileEncode
-components.active[3][6] = {
+components.active[3][4] = {
   provider = 'file_encoding',
   hl = {
-    fg = 'white',
+    fg = 'oceanblue',
     bg = 'bg',
     style = 'bold'
   },
   right_sep = ' '
 }
+ 
 -- rubyVersion
-components.active[3][7] = {
-  provider = function()
-    return ' '..vim.fn['rvm#string']()
-  end,
+-- components.active[3][7] = {
+--   provider = function()
+--     return ' '..vim.fn['rvm#string']()
+--   end,
+--   hl = {
+--     fg = 'red',
+--     bg = 'bg',
+--     style = 'bold'
+--   },
+--   right_sep = ' '
+-- }
+
+-- lineInfo
+components.active[3][5] = {
+  provider = 'position',
+  hl = {
+    fg = 'yellow',
+    bg = 'bg',
+    style = 'bold'
+  },
+  right_sep = ' '
+}
+
+-- linePercent
+components.active[3][6] = {
+  provider = 'line_percentage',
   hl = {
     fg = 'red',
     bg = 'bg',
@@ -329,39 +381,20 @@ components.active[3][7] = {
   },
   right_sep = ' '
 }
--- lineInfo
-components.active[3][8] = {
-  provider = 'position',
-  hl = {
-    fg = 'white',
-    bg = 'bg',
-    style = 'bold'
-  },
-  right_sep = ' '
-}
--- linePercent
-components.active[3][9] = {
-  provider = 'line_percentage',
-  hl = {
-    fg = 'white',
-    bg = 'bg',
-    style = 'bold'
-  },
-  right_sep = ' '
-}
--- scrollBar
-components.active[3][10] = {
-  provider = 'scroll_bar',
-  hl = {
-    fg = 'yellow',
-    bg = 'bg',
-  },
-}
-
+-- 
+-- -- scrollBar
+-- components.active[3][8] = {
+--   provider = 'scroll_bar',
+--   hl = {
+--     fg = 'yellow',
+--     bg = 'bg',
+--   },
+-- }
+-- 
 -- INACTIVE
 
 -- fileType
-components.inactive[1][1] = {
+components.inactive[3][7] = {
   provider = 'file_type',
   hl = {
     fg = 'black',
@@ -386,6 +419,7 @@ components.inactive[1][1] = {
     ' '
   }
 }
+
 require('feline').setup({
   theme = colors,
   default_bg = bg,
