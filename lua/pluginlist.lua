@@ -35,6 +35,11 @@ local plugins = {
 		packer = {"windwp/nvim-autopairs"}
 	},
 
+	{
+		name = "nerdcommenter",
+		packer = {"preservim/nerdcommenter", }
+	},
+
 -- 	{
 -- 		name = "github-copilot",
 -- 		packer = {"github/copilot.vim"}

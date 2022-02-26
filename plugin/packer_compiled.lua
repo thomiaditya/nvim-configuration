@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
   },
+  nerdcommenter = {
+    loaded = true,
+    path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/nerdcommenter",
+    url = "https://github.com/preservim/nerdcommenter"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/nvim-autopairs",

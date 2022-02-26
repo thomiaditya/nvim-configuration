@@ -17,3 +17,5 @@ opt.tabstop = 2
 opt.hlsearch = true
 opt.ignorecase = true
 opt.title = true
+
+vim.g.mapleader = " "

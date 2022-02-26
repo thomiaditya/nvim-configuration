@@ -10,6 +10,7 @@ local configs = {
 	"dashboard",
 	"coq",
 	"lspconfig",
+	"nerdcommenter",
 	"nvim-tree",
 	"gitsigns",
 	"feline",
