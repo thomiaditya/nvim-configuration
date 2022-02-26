@@ -18,4 +18,8 @@ opt.hlsearch = true
 opt.ignorecase = true
 opt.title = true
 
+opt.undofile = true
+opt.undodir = "/home/thomiaditya/.vimundo/"
+
+-- Change leader to space
 vim.g.mapleader = " "
