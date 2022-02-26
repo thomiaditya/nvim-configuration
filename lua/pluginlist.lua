@@ -1,6 +1,5 @@
 -- This file contains all plugins should be installed on this device.
 local plugins = {
-
 	{
 		name = "impatient",
 		packer = {"lewis6991/impatient.nvim"}
@@ -24,6 +23,11 @@ local plugins = {
 	{
 		name = "nvim-tree",
 		packer = {"kyazdani42/nvim-tree.lua", requires = {"kyazdani42/nvim-web-devicons"}}
+	},
+
+	{
+		name = "pear-tree",
+		packer = {"tmsvg/pear-tree"}
 	},
  
 -- 	{
