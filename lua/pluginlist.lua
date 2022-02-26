@@ -1,5 +1,11 @@
 -- This file contains all plugins should be installed on this device.
 local plugins = {
+
+	{
+		name = "impatient",
+		packer = {"lewis6991/impatient.nvim"}
+	},
+
 	{
 		name = "packer",
 		packer = {"wbthomason/packer.nvim"}
@@ -21,8 +27,8 @@ local plugins = {
 	},
 
 	{
-		name = "impatient",
-		packer = {"lewis6991/impatient.nvim"}
+		name = "github-copilot",
+		packer = {"github/copilot.vim"}
 	},
 
 	{
