@@ -1,10 +1,10 @@
 local g = vim.g
 
 vim.cmd([[
-highlight dashboardFooter    ctermfg=240
-highlight dashboardHeader    ctermfg=114
-highlight dashboardCenter    ctermfg=215
-highlight dashboardShortCut  ctermfg=245
+highlight dashboardFooter    guifg=grey
+highlight dashboardHeader    guifg=grey
+highlight dashboardCenter    guifg=grey
+highlight dashboardShortCut  guifg=grey
 ]])
 
 g.dashboard_default_executive = "telescope"
