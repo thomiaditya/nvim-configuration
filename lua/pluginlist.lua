@@ -26,10 +26,10 @@ local plugins = {
 	},
 
 	{
-		name = "pear-tree",
-		packer = {"tmsvg/pear-tree"}
+		name = "autopairs",
+		packer = {"windwp/nvim-autopairs"}
 	},
- 
+
 -- 	{
 -- 		name = "github-copilot",
 -- 		packer = {"github/copilot.vim"}

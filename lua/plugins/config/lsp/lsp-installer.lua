@@ -4,7 +4,7 @@ if not present then
 	return
 end
 
-local coq = require("coq")
+local coq = require("plugins.config.coq")
 
 -- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
 -- or if the server is already installed).
