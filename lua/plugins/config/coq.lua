@@ -2,4 +2,5 @@
 
 vim.g.coq_settings = {auto_start = "shut-up"}
 
-require("coq")
+-- We require this in lspconfig
+-- require("coq")
