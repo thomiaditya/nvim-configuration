@@ -6,3 +6,4 @@ if present then
 end
 
 require("options")
+require("keymap")
