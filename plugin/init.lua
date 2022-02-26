@@ -5,6 +5,7 @@ require("utils.loadpacker")
 local configs = {
 	"dashboard",
 	"treesitter",
+	"lspconfig",
 	"nvim-tree",
 	"gitsigns",
 	"feline",
