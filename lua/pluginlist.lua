@@ -25,12 +25,12 @@ local plugins = {
 		name = "nvim-tree",
 		packer = {"kyazdani42/nvim-tree.lua", requires = {"kyazdani42/nvim-web-devicons"}}
 	},
-
-	{
-		name = "github-copilot",
-		packer = {"github/copilot.vim"}
-	},
-
+ 
+-- 	{
+-- 		name = "github-copilot",
+-- 		packer = {"github/copilot.vim"}
+-- 	},
+ 
 	{
 		name = "nvim-gps",
 		packer = {"SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter"}
