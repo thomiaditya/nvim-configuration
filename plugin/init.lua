@@ -8,6 +8,7 @@ local configs = {
 	"nvim-tree",
 	"gitsigns",
 	"feline",
+	"coq",
 	"telescope",
 }
 
