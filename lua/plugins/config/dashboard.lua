@@ -30,6 +30,7 @@ g.dashboard_custom_header = {
 [[                                                                                                                                        ]],
 [[                                                                                                                                        ]],
 }
+
 g.dashboard_session_directory = '~/.cache/vim/session'
 
 vim.cmd [[
