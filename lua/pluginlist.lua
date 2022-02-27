@@ -74,12 +74,7 @@ local plugins = {
 		name = "vsnip",
 		packer = {"hrsh7th/cmp-vsnip", requires = {"hrsh7th/vim-vsnip"}}
 	},
-  --
-	-- {
-	--   name = "coq",
-	--   packer = {"ms-jpq/coq_nvim", branch = "coq", requires = {{"ms-jpq/coq.artifacts", branch = "artifacts"}, {"ms-jpq/coq.thirdparty", branch = "3p"}}}
-	-- },
-  --
+
 	{
 		name = "lspconfig",
 		packer = {"neovim/nvim-lspconfig", requires = {"williamboman/nvim-lsp-installer"}}
@@ -101,7 +96,10 @@ local plugins = {
 		packer = {"glepnir/dashboard-nvim"}
 	},
 
-
+	{
+		name = "barbar",
+		packer = {"romgrk/barbar.nvim", requires = {"kyazdani42/nvim-web-devicons"}}
+	},
 }
 
 return plugins
