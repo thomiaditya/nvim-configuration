@@ -3,11 +3,10 @@ require("utils.loadpacker")
 
 -- Spesify all of plugin configs that need to be loaded in runtime. You can find config file on lua/plugins/config
 local configs = {
-	"telescope",
-	"dashboard",
-	"pear-tree",
+	"telescope", -- Telescope.nvim is a highly extendable fuzzy finder over lists.
+	"dashboard", -- A minimalist dashboard for Neovim, inspired by doom-emacs.
   "treesitter",
-	"dashboard",
+	"barbar",
 	"nvim-cmp",
 	"autopairs",
 	"lspconfig",
