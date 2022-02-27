@@ -14,6 +14,7 @@ local configs = {
 	"nvim-tree",
 	"gitsigns",
 	"feline",
+	"prettier",
 }
 
 -- Then do loop for all configs spesified above.

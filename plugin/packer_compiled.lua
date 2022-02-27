@@ -199,6 +199,11 @@ _G.packer_plugins = {
     path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["vim-prettier"] = {
+    loaded = true,
+    path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/vim-prettier",
+    url = "https://github.com/prettier/vim-prettier"
+  },
   ["vim-vsnip"] = {
     loaded = true,
     path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/vim-vsnip",
