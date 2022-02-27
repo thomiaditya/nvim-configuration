@@ -31,7 +31,7 @@ g.dashboard_custom_header = {
 [[                                                                                                                                        ]],
 }
 
-g.dashboard_session_directory = '~/.cache/vim/session'
+g.dashboard_session_directory = '~/.cache/nvim/session'
 
 vim.cmd [[
 	let g:dashboard_custom_shortcut={
