@@ -1,9 +1,4 @@
--- Load impatient if it is present.
-local present, impatient = pcall(require, "impatient")
-
-if present then
-	impatient.enable_profile()
-end
-
+-- Init
+require("plugins.config.impatient")
 require("options")
 require("keymap")

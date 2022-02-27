@@ -1,5 +1,7 @@
 -- This file contains all plugins should be installed on this device.
+
 local plugins = {
+	-- Core plugins for neovim
 	{
 		name = "impatient",
 		packer = {"lewis6991/impatient.nvim"}
@@ -10,11 +12,18 @@ local plugins = {
 		packer = {"wbthomason/packer.nvim"}
  	},
 
+	-- Theme plugins
 	{
 		name = "dracula",
 		packer = {"dracula/vim", as = "dracula"}
 	},
 
+	{
+		name = "tokyonight-theme",
+		packer = {"folke/tokyonight.nvim"}
+	},
+
+	-- Managerial plugins
 	{
 		name = "telescope",
 		packer = {"nvim-telescope/telescope.nvim", requires = {"nvim-lua/plenary.nvim"}}
@@ -29,7 +38,18 @@ local plugins = {
 		name = "nvim-tree",
 		packer = {"kyazdani42/nvim-tree.lua", requires = {"kyazdani42/nvim-web-devicons"}}
 	},
+	
+	{
+		name = "nvim-gps",
+		packer = {"SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter"}
+	},
 
+	{
+		name = "gitsigns",
+		packer = {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}}
+	},
+	
+	-- Typing plugins
 	{
 		name = "autopairs",
 		packer = {"windwp/nvim-autopairs"}
@@ -41,20 +61,16 @@ local plugins = {
 	},
 
 	{
-		name = "tokyonight-theme",
-		packer = {"folke/tokyonight.nvim"}
+		name = "coq",
+		packer = {"ms-jpq/coq_nvim", branch = "coq", requires = {{"ms-jpq/coq.artifacts", branch = "artifacts"}, {"ms-jpq/coq.thirdparty", branch = "3p"}}}
 	},
 
 	{
-		name = "nvim-gps",
-		packer = {"SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter"}
+		name = "lspconfig",
+		packer = {"neovim/nvim-lspconfig", requires = {"williamboman/nvim-lsp-installer"}}
 	},
 
-	{
-		name = "gitsigns",
-		packer = {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}}
-	},
-
+	-- Interface plugins
 	{
 		name = "feline",
 		packer = {"feline-nvim/feline.nvim", requires = {"kyazdani42/nvim-web-devicons", opt = true}}
@@ -70,15 +86,6 @@ local plugins = {
 		packer = {"glepnir/dashboard-nvim"}
 	},
 
-	{
-		name = "coq",
-		packer = {"ms-jpq/coq_nvim", branch = "coq", requires = {{"ms-jpq/coq.artifacts", branch = "artifacts"}, {"ms-jpq/coq.thirdparty", branch = "3p"}}}
-	},
-
-	{
-		name = "lspconfig",
-		packer = {"neovim/nvim-lspconfig", requires = {"williamboman/nvim-lsp-installer"}}
-	},
 
 }
 

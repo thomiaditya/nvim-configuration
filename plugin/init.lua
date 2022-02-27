@@ -9,6 +9,7 @@ local configs = {
   "treesitter",
 	"dashboard",
 	"coq",
+	"autopairs",
 	"lspconfig",
 	"nerdcommenter",
 	"nvim-tree",
