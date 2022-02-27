@@ -74,12 +74,12 @@ local plugins = {
 		name = "vsnip",
 		packer = {"hrsh7th/cmp-vsnip", requires = {"hrsh7th/vim-vsnip"}}
 	},
-
-	{
-		name = "coq",
-		packer = {"ms-jpq/coq_nvim", branch = "coq", requires = {{"ms-jpq/coq.artifacts", branch = "artifacts"}, {"ms-jpq/coq.thirdparty", branch = "3p"}}}
-	},
-
+  --
+	-- {
+	--   name = "coq",
+	--   packer = {"ms-jpq/coq_nvim", branch = "coq", requires = {{"ms-jpq/coq.artifacts", branch = "artifacts"}, {"ms-jpq/coq.thirdparty", branch = "3p"}}}
+	-- },
+  --
 	{
 		name = "lspconfig",
 		packer = {"neovim/nvim-lspconfig", requires = {"williamboman/nvim-lsp-installer"}}

@@ -8,7 +8,6 @@ local configs = {
 	"pear-tree",
   "treesitter",
 	"dashboard",
-	-- "coq",
 	"nvim-cmp",
 	"autopairs",
 	"lspconfig",
