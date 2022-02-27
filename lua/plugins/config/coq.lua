@@ -2,6 +2,11 @@
 
 vim.g.coq_settings = {
 	auto_start = "shut-up",
+	display = {
+		pum = {
+			x_max_len = 100
+		}
+	}
 }
 
 -- We require this in lspconfig

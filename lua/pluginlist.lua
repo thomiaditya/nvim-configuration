@@ -40,11 +40,11 @@ local plugins = {
 		packer = {"preservim/nerdcommenter", }
 	},
 
--- 	{
--- 		name = "github-copilot",
--- 		packer = {"github/copilot.vim"}
--- 	},
- 
+	{
+		name = "tokyonight-theme",
+		packer = {"folke/tokyonight.nvim"}
+	},
+
 	{
 		name = "nvim-gps",
 		packer = {"SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter"}

@@ -1,3 +1,4 @@
+-- Dashboard Nvim
 local g = vim.g
 
 vim.cmd([[
@@ -28,3 +29,4 @@ g.dashboard_custom_header = {
 [[                                                                                                                                        ]],
 [[                                                                                                                                        ]],
 }
+

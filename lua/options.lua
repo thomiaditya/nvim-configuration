@@ -6,7 +6,7 @@ opt.relativenumber = true
 opt.mouse = "a"
 opt.syntax = "on"
 opt.termguicolors = true
-vim.cmd "colorscheme dracula"
+vim.cmd "colorscheme tokyonight"
 
 -- Indentation
 opt.autoindent = true
