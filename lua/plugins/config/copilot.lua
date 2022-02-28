@@ -1,0 +1,4 @@
+-- Create setting for github copilot
+-- @author qinyejun on 2019-11-12 11:11:00
+-- @version 1.0.0
+-- @license MIT
