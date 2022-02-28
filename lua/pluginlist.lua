@@ -85,6 +85,11 @@ local plugins = {
 		packer = {"prettier/vim-prettier", branch = "release/1.x", run = "yarn install"}
 	},
 
+	{
+		name = "copilot",
+		packer = {"github/copilot.vim", branch = "release"}
+	},
+
 	-- Interface plugins
 	{
 		name = "feline",
