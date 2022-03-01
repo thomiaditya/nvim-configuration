@@ -26,3 +26,4 @@ g.NERDTrimTrailingWhitespace = 1
 g.NERDToggleCheckAllLines = 1
 
 vim.api.nvim_set_keymap("n", "<leader>/", "<Plug>NERDCommenterToggle", {noremap = false})
+vim.api.nvim_set_keymap("v", "<leader>/", "<Plug>NERDCommenterToggle", {noremap = false})
