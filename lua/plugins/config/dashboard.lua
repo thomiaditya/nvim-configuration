@@ -41,9 +41,16 @@ vim.cmd[[
       \ 'last_session' : 'SPC s l',
       \ 'find_history' : 'SPC f h',
       \ 'find_file' : 'CTRL p',
-      \ 'new_file' : 'SPC c n',
+      \ 'new_file' : 'SPC n f',
       \ 'change_colorscheme' : 'SPC t c',
       \ 'find_word' : 'SPC f a',
       \ 'book_marks' : 'SPC f b',
       \ }
+	
+	nnoremap <silent> <Leader>fh :DashboardFindHistory<CR>
+	nnoremap <silent> <C-p> :DashboardFindFile<CR>
+	nnoremap <silent> <Leader>tc :DashboardChangeColorscheme<CR>
+	nnoremap <silent> <Leader>fa :DashboardFindWord<CR>
+	nnoremap <silent> <Leader>fb :DashboardJumpMark<CR>
+	nnoremap <silent> <Leader>nf :DashboardNewFile<CR>
 ]]
