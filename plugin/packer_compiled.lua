@@ -204,6 +204,11 @@ _G.packer_plugins = {
     path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["vim-multiple-cursors"] = {
+    loaded = true,
+    path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/vim-multiple-cursors",
+    url = "https://github.com/terryma/vim-multiple-cursors"
+  },
   ["vim-prettier"] = {
     loaded = true,
     path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/vim-prettier",

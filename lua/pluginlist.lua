@@ -95,6 +95,11 @@ local plugins = {
 		packer = {"tpope/vim-surround"}
 	},
 
+	{
+		name = "vim-multiple-cursors",
+		packer = {"terryma/vim-multiple-cursors"}
+	},
+
 	-- Interface plugins
 	{
 		name = "feline",
