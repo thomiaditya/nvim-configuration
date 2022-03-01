@@ -90,6 +90,11 @@ local plugins = {
 		packer = {"github/copilot.vim", branch = "release"}
 	},
 
+	{
+		name = "surround",
+		packer = {"tpope/vim-surround"}
+	},
+
 	-- Interface plugins
 	{
 		name = "feline",
