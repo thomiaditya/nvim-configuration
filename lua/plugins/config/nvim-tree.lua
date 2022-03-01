@@ -1,7 +1,9 @@
 -- Nvim tree
 require'nvim-tree'.setup {
 	view = {
-		side = "right",
+		side = "left",
+		open_on_tab = true,
+		auto_close = true,
 	}
 }
 
