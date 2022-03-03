@@ -112,6 +112,11 @@ local plugins = {
 	},
 
 	{
+		name = "vim-puppet",
+		packer = {"rodjek/vim-puppet"}
+	},
+
+	{
 		name = "dashboard",
 		packer = {"glepnir/dashboard-nvim"}
 	},
