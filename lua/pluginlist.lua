@@ -125,6 +125,11 @@ local plugins = {
 		name = "barbar",
 		packer = {"romgrk/barbar.nvim", requires = {"kyazdani42/nvim-web-devicons"}}
 	},
+
+	{
+		name = "truezen",
+		packer = {"Pocco81/TrueZen.nvim"}
+	},
 }
 
 return plugins
