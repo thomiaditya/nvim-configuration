@@ -22,7 +22,7 @@ g.NERDCommentEmptyLines = 1
 -- Enable trimming of trailing whitespace when uncommenting
 g.NERDTrimTrailingWhitespace = 1
 
--- Enable NERDCommenterToggle to check all selected lines is commented or not 
+-- Enable NERDCommenterToggle to check all selected lines is commented or not
 g.NERDToggleCheckAllLines = 1
 
 vim.api.nvim_set_keymap("n", "<leader>/", "<Plug>NERDCommenterToggle", {noremap = false})
