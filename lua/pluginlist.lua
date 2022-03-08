@@ -56,6 +56,11 @@ local plugins = {
 	},
 
 	{
+		name = "indent-blankline",
+		packer = {"lukas-reineke/indent-blankline.nvim"}
+	},
+
+	{
 		name = "nerdcommenter",
 		packer = {"preservim/nerdcommenter", }
 	},
@@ -126,10 +131,6 @@ local plugins = {
 		packer = {"romgrk/barbar.nvim", requires = {"kyazdani42/nvim-web-devicons"}}
 	},
 
-	{
-		name = "truezen",
-		packer = {"Pocco81/TrueZen.nvim"}
-	},
 }
 
 return plugins

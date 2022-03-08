@@ -9,6 +9,7 @@ local configs = {
 	"barbar",
 	"nvim-cmp",
 	"autopairs",
+	"indent-blankline",
 	"lspconfig",
 	"nerdcommenter",
 	"nvim-tree",
