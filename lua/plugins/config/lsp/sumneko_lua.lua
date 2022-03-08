@@ -1,3 +1,5 @@
+-- Sumneko lua
+
 return {
 	settings = {
 		Lua = {
