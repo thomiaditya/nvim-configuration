@@ -91,11 +91,6 @@ local plugins = {
 	},
 
 	{
-		name = "neoformat",
-		packer = {"sbdchd/neoformat"}
-	},
-
-	{
 		name = "copilot",
 		packer = {"github/copilot.vim", branch = "release"}
 	},
