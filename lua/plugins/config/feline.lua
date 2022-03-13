@@ -1,6 +1,6 @@
 local lsp = require("feline.providers.lsp")
 local vi_mode_utils = require("feline.providers.vi_mode")
-local gps = require("nvim-gps")
+-- local gps = require("nvim-gps")
 
 local force_inactive = {
 	filetypes = {},
@@ -96,33 +96,45 @@ force_inactive.buftypes = { "terminal" }
 -- LEFT
 
 -- vi-mode
-components.active[1][1] = {
-	provider = " NEOVIM ",
+components.active[1][2] = {
+	provider = vi_mode_utils.get_vim_mode(),
 	hl = function()
 		local val = {}
 
-		val.fg = vi_mode_utils.get_mode_color()
+		val.fg = "grey"
 		val.bg = "black"
 		val.style = "bold"
 
 		return val
 	end,
-	right_sep = ""
+	right_sep = " "
+}
+
+-- gitBranch
+components.active[1][1] = {
+	provider = "git_branch",
+	hl = {
+		fg = "grey",
+		bg = "bg",
+		style = "bold"
+	},
+	right_sep = " "
 }
 
 -- vi-symbol
-components.active[1][2] = {
+components.active[1][3] = {
 	provider = function()
 		return vi_mode_text[vi_mode_utils.get_vim_mode()]
 	end,
 	hl = function()
 		local val = {}
-		val.fg = vi_mode_utils.get_mode_color()
+		-- val.fg = vi_mode_utils.get_mode_color()
+		val.fg = "grey"
 		val.bg = "bg"
 		val.style = "bold"
 		return val
 	end,
-	right_sep = " "
+	right_sep = ""
 }
 
 -- -- filename
@@ -169,92 +181,82 @@ components.active[1][2] = {
 --   }
 -- }
 
--- gitBranch
-components.active[1][3] = {
-	provider = "git_branch",
-	hl = {
-		fg = "yellow",
-		bg = "bg",
-		style = "bold"
-	}
-}
-
 -- MID
 
 -- diffAdd
-components.active[2][1] = {
+components.active[1][4] = {
 	provider = "git_diff_added",
 	hl = {
-		fg = "green",
+		fg = "grey",
 		bg = "bg",
 		style = "bold"
 	}
 }
 
 -- diffModfified
-components.active[2][2] = {
+components.active[1][5] = {
 	provider = "git_diff_changed",
 	hl = {
-		fg = "orange",
+		fg = "grey",
 		bg = "bg",
 		style = "bold"
 	}
 }
 
 -- diffRemove
-components.active[2][3] = {
+components.active[1][6] = {
 	provider = "git_diff_removed",
 	hl = {
-		fg = "red",
+		fg = "grey",
 		bg = "bg",
 		style = "bold"
 	}
 }
 
 -- diagnosticErrors
-components.active[2][4] = {
+components.active[1][7] = {
 	provider = "diagnostic_errors",
 	enabled = function()
 		return lsp.diagnostics_exist(vim.diagnostic.severity.ERROR)
 	end,
 	hl = {
-		fg = "red",
+		fg = "grey",
 		style = "bold"
 	}
 }
 
 -- diagnosticWarn
-components.active[2][5] = {
+components.active[1][8] = {
 	provider = "diagnostic_warnings",
 	enabled = function()
 		return lsp.diagnostics_exist(vim.diagnostic.severity.WARN)
 	end,
 	hl = {
-		fg = "yellow",
+		fg = "grey",
 		style = "bold"
 	}
 }
 
 -- diagnosticHint
-components.active[2][6] = {
+components.active[1][9] = {
 	provider = "diagnostic_hints",
 	enabled = function()
 		return lsp.diagnostics_exist(vim.diagnostic.severity.HINT)
 	end,
 	hl = {
-		fg = "cyan",
+		fg = "grey",
 		style = "bold"
 	}
 }
 
 -- diagnosticInfo
-components.active[2][7] = {
+components.active[1][10] = {
 	provider = "diagnostic_info",
 	enabled = function()
 		return lsp.diagnostics_exist(vim.diagnostic.severity.INFO)
 	end,
 	hl = {
-		fg = "skyblue",
+		fg = "grey",
 		style = "bold"
 	}
 }

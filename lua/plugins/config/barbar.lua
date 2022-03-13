@@ -36,3 +36,8 @@ map('n', '<Space>bl', ':BufferOrderByLanguage<CR>', opts)
 -- Other:
 -- :BarbarEnable - enables barbar (enabled by default)
 -- :BarbarDisable - very bad command, should never be used
+
+-- Set autohide to true
+vim.g.bufferline = {
+	auto_hide = true,
+}
