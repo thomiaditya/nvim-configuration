@@ -101,13 +101,13 @@ components.active[1][1] = {
 	hl = function()
 		local val = {}
 
-		val.bg = vi_mode_utils.get_mode_color()
-		val.fg = "black"
+		val.fg = vi_mode_utils.get_mode_color()
+		val.bg = "black"
 		val.style = "bold"
 
 		return val
 	end,
-	right_sep = " "
+	right_sep = ""
 }
 
 -- vi-symbol
@@ -169,8 +169,6 @@ components.active[1][2] = {
 --   }
 -- }
 
--- MID
-
 -- gitBranch
 components.active[1][3] = {
 	provider = "git_branch",
@@ -180,6 +178,8 @@ components.active[1][3] = {
 		style = "bold"
 	}
 }
+
+-- MID
 
 -- diffAdd
 components.active[2][1] = {
