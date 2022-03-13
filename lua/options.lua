@@ -9,9 +9,13 @@ opt.termguicolors = true
 vim.cmd "colorscheme tokyonight"
 
 -- Indentation
-opt.autoindent = true
+opt.expandtab = true
 opt.shiftwidth = 2
+opt.softtabstop = 2
 opt.tabstop = 2
+opt.autoindent = true
+
+vim.cmd [[filetype plugin indent on]]
 
 -- Searching
 opt.hlsearch = true

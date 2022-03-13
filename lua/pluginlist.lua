@@ -55,6 +55,11 @@ local plugins = {
 		packer = {"windwp/nvim-autopairs"}
 	},
 
+  {
+    name = "vim-polyglot",
+    packer = {"sheerun/vim-polyglot"}
+  },
+
 	{
 		name = "indent-blankline",
 		packer = {"lukas-reineke/indent-blankline.nvim"}
