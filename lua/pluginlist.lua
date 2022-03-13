@@ -91,8 +91,8 @@ local plugins = {
 	},
 
 	{
-		name = "prettier",
-		packer = {"prettier/vim-prettier", branch = "release/1.x", run = "yarn install"}
+		name = "neoformat",
+		packer = {"sbdchd/neoformat"}
 	},
 
 	{

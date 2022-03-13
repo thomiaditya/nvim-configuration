@@ -139,6 +139,11 @@ _G.packer_plugins = {
     path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
     url = "https://github.com/onsails/lspkind-nvim"
   },
+  neoformat = {
+    loaded = true,
+    path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/neoformat",
+    url = "https://github.com/sbdchd/neoformat"
+  },
   nerdcommenter = {
     loaded = true,
     path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/nerdcommenter",
@@ -218,11 +223,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/vim-polyglot",
     url = "https://github.com/sheerun/vim-polyglot"
-  },
-  ["vim-prettier"] = {
-    loaded = true,
-    path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/vim-prettier",
-    url = "https://github.com/prettier/vim-prettier"
   },
   ["vim-puppet"] = {
     loaded = true,
