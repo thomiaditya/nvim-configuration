@@ -95,46 +95,49 @@ force_inactive.buftypes = { "terminal" }
 
 -- LEFT
 
--- vi-mode
-components.active[1][2] = {
-	provider = vi_mode_utils.get_vim_mode(),
-	hl = function()
-		local val = {}
-
-		val.fg = "grey"
-		val.bg = "black"
-		val.style = "bold"
-
-		return val
-	end,
-	right_sep = " "
-}
+-- -- vi-mode
+-- components.active[1][2] = {
+--   provider = vi_mode_utils.get_vim_mode(),
+--   hl = function()
+--     local val = {}
+--
+--     val.fg = "grey"
+--     val.bg = "black"
+--     val.style = "bold"
+--
+--     return val
+--   end,
+--   right_sep = " ",
+--   left_sep = " "
+-- }
 
 -- gitBranch
-components.active[1][1] = {
+components.active[1][2] = {
 	provider = "git_branch",
 	hl = {
 		fg = "grey",
 		bg = "bg",
 		style = "bold"
 	},
-	right_sep = " "
+	-- right_sep = " ",
+	left_sep = " "
 }
 
 -- vi-symbol
-components.active[1][3] = {
+components.active[1][1] = {
 	provider = function()
 		return vi_mode_text[vi_mode_utils.get_vim_mode()]
 	end,
 	hl = function()
 		local val = {}
-		-- val.fg = vi_mode_utils.get_mode_color()
-		val.fg = "grey"
+		val.fg = vi_mode_utils.get_mode_color()
+		-- val.fg = "grey"
 		val.bg = "bg"
 		val.style = "bold"
 		return val
 	end,
-	right_sep = ""
+	right_sep = "",
+	left_sep = " "
 }
 
 -- -- filename
@@ -184,7 +187,7 @@ components.active[1][3] = {
 -- MID
 
 -- diffAdd
-components.active[1][4] = {
+components.active[1][3] = {
 	provider = "git_diff_added",
 	hl = {
 		fg = "grey",
@@ -194,7 +197,7 @@ components.active[1][4] = {
 }
 
 -- diffModfified
-components.active[1][5] = {
+components.active[1][4] = {
 	provider = "git_diff_changed",
 	hl = {
 		fg = "grey",
@@ -204,7 +207,7 @@ components.active[1][5] = {
 }
 
 -- diffRemove
-components.active[1][6] = {
+components.active[1][5] = {
 	provider = "git_diff_removed",
 	hl = {
 		fg = "grey",
@@ -214,7 +217,7 @@ components.active[1][6] = {
 }
 
 -- diagnosticErrors
-components.active[1][7] = {
+components.active[1][6] = {
 	provider = "diagnostic_errors",
 	enabled = function()
 		return lsp.diagnostics_exist(vim.diagnostic.severity.ERROR)
@@ -226,7 +229,7 @@ components.active[1][7] = {
 }
 
 -- diagnosticWarn
-components.active[1][8] = {
+components.active[1][7] = {
 	provider = "diagnostic_warnings",
 	enabled = function()
 		return lsp.diagnostics_exist(vim.diagnostic.severity.WARN)
@@ -238,7 +241,7 @@ components.active[1][8] = {
 }
 
 -- diagnosticHint
-components.active[1][9] = {
+components.active[1][8] = {
 	provider = "diagnostic_hints",
 	enabled = function()
 		return lsp.diagnostics_exist(vim.diagnostic.severity.HINT)
@@ -250,7 +253,7 @@ components.active[1][9] = {
 }
 
 -- diagnosticInfo
-components.active[1][10] = {
+components.active[1][9] = {
 	provider = "diagnostic_info",
 	enabled = function()
 		return lsp.diagnostics_exist(vim.diagnostic.severity.INFO)
