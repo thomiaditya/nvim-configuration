@@ -436,9 +436,10 @@ components.inactive[3][7] = {
 }
 
 require("feline").setup({
-	theme = colors,
-	default_bg = bg,
-	default_fg = fg,
+	-- theme = colors,
+	-- theme = "tokyonight",
+	default_bg = colors.bg,
+	default_fg = colors.fg,
 	vi_mode_colors = vi_mode_colors,
 	components = components,
 	force_inactive = force_inactive

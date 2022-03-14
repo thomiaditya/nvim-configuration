@@ -6,7 +6,6 @@ opt.relativenumber = true
 opt.mouse = "a"
 opt.syntax = "on"
 opt.termguicolors = true
-vim.cmd "colorscheme tokyonight"
 
 -- Indentation
 opt.expandtab = true
