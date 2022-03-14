@@ -3,6 +3,10 @@ require("utils.loadpacker")
 
 -- Spesify all of plugin configs that need to be loaded in runtime. You can find config file on lua/plugins/config
 local configs = {
+	-- Theme
+	"tokyonight-theme",
+
+	-- Plugins
 	"telescope", -- Telescope.nvim is a highly extendable fuzzy finder over lists.
 	"dashboard", -- A minimalist dashboard for Neovim, inspired by doom-emacs.
   "treesitter",
@@ -15,9 +19,6 @@ local configs = {
 	"nvim-tree",
 	"gitsigns",
 	"feline",
-
-	-- Theme
-	"tokyonight-theme"
 }
 
 -- Then do loop for all configs spesified above.
