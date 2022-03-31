@@ -13,7 +13,7 @@ local configs = {
 	"barbar", -- A plugin for Neovim that provides a bar at the top of the screen.
 	"nvim-cmp", -- A plugin for Neovim that provides a command-mode prompt.
 	"autopairs", -- A plugin for Neovim that provides automatic pair insertion.
-	"move.nvim", -- A plugin for Neovim that provides movement commands.
+	"move-nvim", -- A plugin for Neovim that provides movement commands.
 	"indent-blankline", -- A plugin for Neovim that provides automatic indentation.
 	"lspconfig", -- A plugin for Neovim that provides LSP support.
 	"nerdcommenter", -- A plugin for Neovim that provides comment insertion.

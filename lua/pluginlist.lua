@@ -51,7 +51,7 @@ local plugins = {
 
 	-- Typing plugins
 	{
-		name = "move.nvim",
+		name = "move-nvim",
 		packer = {"fedepujol/move.nvim"}
 	},
 
