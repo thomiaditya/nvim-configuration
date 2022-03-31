@@ -2,7 +2,7 @@ local opt = vim.opt
 
 -- User Interface
 opt.number = true
-opt.relativenumber = true
+opt.relativenumber = false
 opt.mouse = "a"
 opt.syntax = "on"
 opt.termguicolors = true
