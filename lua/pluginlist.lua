@@ -51,6 +51,11 @@ local plugins = {
 
 	-- Typing plugins
 	{
+		name = "move.nvim",
+		packer = {"fedepujol/move.nvim"}
+	},
+
+	{
 		name = "autopairs",
 		packer = {"windwp/nvim-autopairs"}
 	},

@@ -139,6 +139,11 @@ _G.packer_plugins = {
     path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
     url = "https://github.com/onsails/lspkind-nvim"
   },
+  ["move.nvim"] = {
+    loaded = true,
+    path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/move.nvim",
+    url = "https://github.com/fedepujol/move.nvim"
+  },
   nerdcommenter = {
     loaded = true,
     path = "/home/thomiaditya/.local/share/nvim/site/pack/packer/start/nerdcommenter",

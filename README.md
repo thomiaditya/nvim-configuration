@@ -1,6 +1,6 @@
 # NEOVIM CONFIGURATION V1
 
-Just neovim configuration with style. Kasih
+Just neovim configuration with style.
 
 ## Requirements
 
