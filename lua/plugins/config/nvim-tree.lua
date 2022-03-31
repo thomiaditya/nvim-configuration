@@ -1,8 +1,5 @@
 -- Nvim tree
 require'nvim-tree'.setup {
-  view = {
-    side = "left",
-  },
   ignore_ft_on_setup = {"dashboard"},
 }
 
