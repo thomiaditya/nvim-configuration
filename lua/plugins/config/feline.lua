@@ -1,446 +1,255 @@
-local lsp = require("feline.providers.lsp")
-local vi_mode_utils = require("feline.providers.vi_mode")
--- local gps = require("nvim-gps")
+if not pcall(require, "feline") then
+    error("feline module not found")
+end
 
-local force_inactive = {
-	filetypes = {},
-	buftypes = {},
-	bufnames = {}
-}
-
-local components = {
-	active = { {}, {}, {} },
-	inactive = { {}, {}, {} }
-}
+local lsp = require 'feline.providers.lsp'
+local vi_mode_utils = require 'feline.providers.vi_mode'
 
 local colors = {
-	bg = "#282a36",
-	black = "#282a36",
-	yellow = "#e0af68",
-	cyan = "#7dcfff",
-	oceanblue = "#45707a",
-	green = "#9ece6a",
-	orange = "#ff9e64",
-	violet = "#d3869b",
-	magenta = "#bb9af7",
-	white = "#f8f8f2",
-	fg = "#c0caf5",
-	skyblue = "#8be9fd",
-	red = "#f7768e"
+    bg = "#68217A",
+    fg = "#abb2bf",
+    red = "#e06c75",
+    orange = "#d19a66",
+    yellow = "#e5c07b",
+    green = "#98c379",
+    aqua = "#61afef",
+    blue = "#7078BD",
+    purple = "#AB65B3",
+    magenta = "#E8283B",
+    cyan = "#61afef",
+    white = "#BEC7F2",
+    black = "#1d2021",
+    lightblack = "#282a36",
+    lightred = "#e06c75",
+    lightgreen = "#98c379",
+    lightyellow = "#e5c07b",
+    lightblue = "#61afef",
+    lightmagenta = "#d33682",
+    lightcyan = "#61afef",
+    lightwhite = "#f8f8f2",
 }
 
 local vi_mode_colors = {
-	NORMAL = "green",
-	OP = "green",
-	INSERT = "red",
-	VISUAL = "skyblue",
-	LINES = "skyblue",
-	BLOCK = "skyblue",
-	REPLACE = "violet",
-	["V-REPLACE"] = "violet",
-	ENTER = "cyan",
-	MORE = "cyan",
-	SELECT = "orange",
-	COMMAND = "green",
-	SHELL = "green",
-	TERM = "green",
-	NONE = "yellow"
+    NORMAL = colors.green,
+    INSERT = colors.red,
+    VISUAL = colors.magenta,
+    OP = colors.green,
+    BLOCK = colors.blue,
+    REPLACE = colors.violet,
+    ['V-REPLACE'] = colors.violet,
+    ENTER = colors.cyan,
+    MORE = colors.cyan,
+    SELECT = colors.orange,
+    COMMAND = colors.green,
+    SHELL = colors.green,
+    TERM = colors.green,
+    NONE = colors.yellow
 }
 
-local vi_mode_text = {
-	NORMAL = "<|",
-	OP = "<|",
-	INSERT = "|>",
-	VISUAL = "<>",
-	LINES = "<>",
-	BLOCK = "<>",
-	REPLACE = "<>",
-	["V-REPLACE"] = "<>",
-	ENTER = "<>",
-	MORE = "<>",
-	SELECT = "<>",
-	COMMAND = "<|",
-	SHELL = "<|",
-	TERM = "<|",
-	NONE = "<>"
+-- Create components container.
+local components = {
+    active = {},
+    inactive = {},
 }
 
-local buffer_not_empty = function()
-	if vim.fn.empty(vim.fn.expand("%:t")) ~= 1 then
-		return true
-	end
-	return false
-end
+-- Insert 3D in componenets
+table.insert(components.active, {})
+table.insert(components.active, {})
+table.insert(components.active, {})
+table.insert(components.inactive, {})
+table.insert(components.inactive, {})
+table.insert(components.inactive, {})
 
-local checkwidth = function()
-	local squeeze_width = vim.fn.winwidth(0) / 2
-	if squeeze_width > 40 then
-		return true
-	end
-	return false
-end
+local contents = {
+    separator = function(sep)
+        return {
+            provider = sep,
+            hl = {
+                fg = colors.white,
+                bg = colors.bg,
+            },
+        }
+    end,
 
-force_inactive.filetypes =
-	{
-		"NvimTree",
-		"dbui",
-		"packer",
-		"startify",
-		"fugitive",
-		"fugitiveblame",
-		"dashboard"
-	}
+    vi_mode = {
+        provider = function()
+            return " ● "
+        end,
+        hl = {
+            fg = vi_mode_utils.get_mode_color(), 
+            bg = colors.bg,
+        },
+    },
 
-force_inactive.buftypes = { "terminal" }
+    file_info = {
+        provider = require("utils.file_name").get_current_ufn,
+        opts = {
+            type = 'unique',
+        },
+        hl = {
+            fg = colors.white,
+            bg = colors.bg,
+        },
+    },
 
--- LEFT
+    git_branch = {
+        provider = "git_branch",
+        hl = {
+            fg = colors.purple,
+            bg = colors.bg,
+        },
+    },
 
--- -- vi-mode
--- components.active[1][2] = {
---   provider = vi_mode_utils.get_vim_mode(),
---   hl = function()
---     local val = {}
---
---     val.fg = "grey"
---     val.bg = "black"
---     val.style = "bold"
---
---     return val
---   end,
---   right_sep = " ",
---   left_sep = " "
--- }
+    diagnostic = {
+        error = {
+            provider = "diagnostic_errors",
+            enabled = function ()
+                return lsp.diagnostics_exist(vim.diagnostic.severity.ERROR)
+            end,
+            hl = {
+                fg = colors.red,
+                bg = colors.bg,
+            },
+        },
+        warning = {
+            provider = "diagnostic_warnings",
+            icon = " ● ",
+            enabled = function ()
+                return lsp.diagnostics_exist(vim.diagnostic.severity.WARNING)
+            end,
+            hl = {
+                fg = colors.orange,
+                bg = colors.bg,
+            },
+        },
+        info = {
+            provider = "diagnostic_info",
+            enabled = function ()
+                return lsp.diagnostics_exist(vim.diagnostic.severity.INFO)
+            end,
+            hl = {
+                fg = colors.green,
+                bg = colors.bg,
+            },
+        },
+        hint = {
+            provider = "diagnostic_hints",
+            icon = " ● ",
+            enabled = function ()
+                return lsp.diagnostics_exist(vim.diagnostic.severity.HINT)
+            end,
+            hl = {
+                fg = colors.yellow,
+                bg = colors.bg,
+            },
+        },
+    },
 
--- gitBranch
-components.active[1][2] = {
-	provider = "git_branch",
-	hl = {
-		fg = "grey",
-		bg = "bg",
-		style = "bold"
-	},
-	-- right_sep = " ",
-	left_sep = " "
+    position = {
+        provider = "position",
+        hl = {
+            fg = colors.white,
+            bg = colors.bg,
+        },
+    },
+
+    line_percentage = {
+        provider = "line_percentage",
+        hl = {
+            fg = colors.white,
+            bg = colors.bg,
+        },
+    },
+
+    file_encoding = {
+        provider = "file_encoding",
+        hl = {
+            fg = colors.white,
+            bg = colors.bg,
+        },
+    },
+
+    tab_size = {
+        provider = function ()
+            return "Tab: " .. vim.api.nvim_exec([[echo &tabstop]], true)
+        end,
+        hl = {
+            fg = colors.white,
+            bg = colors.bg,
+        },
+    },
+
+    file_type = {
+        provider = "file_type",
+        hl = {
+            fg = colors.white,
+            bg = colors.bg,
+            style = "italic",
+        },
+    },
+
+    file_format = {
+        provider = "file_format",
+        hl = {
+            fg = colors.white,
+            bg = colors.bg,
+        },
+    },
+
+    file_size = {
+        provider = "file_size",
+        hl = {
+            fg = colors.white,
+            bg = colors.bg,
+        },
+    },
+
+    symbols = {
+        provider = "ㅹ",
+        hl = {
+            fg = colors.white,
+            bg = colors.bg,
+        },
+    }
 }
 
--- vi-symbol
-components.active[1][1] = {
-	provider = function()
-		return vi_mode_text[vi_mode_utils.get_vim_mode()]
-	end,
-	hl = function()
-		local val = {}
-		val.fg = vi_mode_utils.get_mode_color()
-		-- val.fg = "grey"
-		val.bg = "bg"
-		val.style = "bold"
-		return val
-	end,
-	right_sep = "",
-	left_sep = " "
+-- Insert content to component container
+table.insert(components.active[1], contents.vi_mode)
+table.insert(components.active[1], contents.file_info)
+table.insert(components.active[1], contents.separator("  "))
+table.insert(components.active[1], contents.git_branch)
+table.insert(components.active[1], contents.separator(" "))
+
+table.insert(components.active[1], contents.diagnostic.error)
+table.insert(components.active[1], contents.diagnostic.warning)
+table.insert(components.active[1], contents.diagnostic.info)
+table.insert(components.active[1], contents.diagnostic.hint)
+
+table.insert(components.active[3], contents.position)
+table.insert(components.active[3], contents.separator("  "))
+table.insert(components.active[3], contents.file_encoding)
+table.insert(components.active[3], contents.separator("  "))
+table.insert(components.active[3], contents.tab_size)
+table.insert(components.active[3], contents.separator("  "))
+table.insert(components.active[3], contents.file_type)
+table.insert(components.active[3], contents.separator(" "))
+table.insert(components.active[3], contents.symbols)
+table.insert(components.active[3], contents.separator(" "))
+-- Starting feline
+local feline = require'feline'
+
+feline.setup {
+    default_bg = colors.bg,
+    default_fg = colors.fg,
+    components = components,
+    -- vi_mode_colors = vi_mode_colors,
+    force_inactive = {
+        filetypes = {
+            'packer',
+            'NvimTree',
+            'dashboard',
+        },
+        buftypes = {'terminal'},
+        bufnames = {}
+    }
 }
-
--- -- filename
--- components.active[1][3] = {
---   --  provider = function()
---   --    return vim.fn.expand("%:F")
---   --  end,
---   provider = {
---     name = "file_info",
---     opts = {
---       type = "unique",
---       colored_icon = false,
---       file_modified_icon = "",
---       file_readonly_icon = ""
---     }
---   },
---   hl = {
---     fg = "white",
---     bg = "bg",
---     style = "bold"
---   },
---   right_sep = {
---     str = "",
---     hl = {
---       fg = "white",
---       bg = "bg",
---       style = "bold"
---     }
---   }
--- }
---
--- -- nvimGps
--- components.active[1][4] = {
---   provider = function()
---     return gps.get_location()
---   end,
---   enabled = function()
---     return gps.is_available()
---   end,
---   hl = {
---     fg = "white",
---     bg = "bg",
---     style = "bold"
---   }
--- }
-
--- MID
-
--- diffAdd
-components.active[1][3] = {
-	provider = "git_diff_added",
-	hl = {
-		fg = "grey",
-		bg = "bg",
-		style = "bold"
-	}
-}
-
--- diffModfified
-components.active[1][4] = {
-	provider = "git_diff_changed",
-	hl = {
-		fg = "grey",
-		bg = "bg",
-		style = "bold"
-	}
-}
-
--- diffRemove
-components.active[1][5] = {
-	provider = "git_diff_removed",
-	hl = {
-		fg = "grey",
-		bg = "bg",
-		style = "bold"
-	}
-}
-
--- diagnosticErrors
-components.active[1][6] = {
-	provider = "diagnostic_errors",
-	enabled = function()
-		return lsp.diagnostics_exist(vim.diagnostic.severity.ERROR)
-	end,
-	hl = {
-		fg = "grey",
-		style = "bold"
-	}
-}
-
--- diagnosticWarn
-components.active[1][7] = {
-	provider = "diagnostic_warnings",
-	enabled = function()
-		return lsp.diagnostics_exist(vim.diagnostic.severity.WARN)
-	end,
-	hl = {
-		fg = "grey",
-		style = "bold"
-	}
-}
-
--- diagnosticHint
-components.active[1][8] = {
-	provider = "diagnostic_hints",
-	enabled = function()
-		return lsp.diagnostics_exist(vim.diagnostic.severity.HINT)
-	end,
-	hl = {
-		fg = "grey",
-		style = "bold"
-	}
-}
-
--- diagnosticInfo
-components.active[1][9] = {
-	provider = "diagnostic_info",
-	enabled = function()
-		return lsp.diagnostics_exist(vim.diagnostic.severity.INFO)
-	end,
-	hl = {
-		fg = "grey",
-		style = "bold"
-	}
-}
-
--- RIGHT
-
--- LspName
-components.active[3][1] = {
-	provider = "lsp_client_names",
-	hl = {
-		fg = "grey",
-		bg = "bg",
-		style = "bold"
-	},
-	right_sep = " "
-}
-
--- fileIcon
--- components.active[3][2] = {
---   provider = function()
---     local filename = vim.fn.expand('%:t')
---     local extension = vim.fn.expand('%:e')
---     local icon  = require'nvim-web-devicons'.get_icon(filename, extension)
---     if icon == nil then
---       icon = ''
---     end
---     return icon
---   end,
---   hl = function()
---     local val = {}
---     local filename = vim.fn.expand('%:t')
---     local extension = vim.fn.expand('%:e')
---     local icon, name  = require'nvim-web-devicons'.get_icon(filename, extension)
---     if icon ~= nil then
---       val.fg = vim.fn.synIDattr(vim.fn.hlID(name), 'fg')
---     else
---       val.fg = 'white'
---     end
---     val.bg = 'bg'
---     val.style = 'bold'
---     return val
---   end,
---   right_sep = ' '
--- }
-
--- fileType
-components.active[3][2] = {
-	provider = {
-		name = "file_type",
-		opts = { filetype_icon = false }
-	},
-	hl = function()
-		local val = {}
-		local filename = vim.fn.expand("%:t")
-		local extension = vim.fn.expand("%:e")
-		local icon, name = require"nvim-web-devicons".get_icon(filename, extension)
-		if icon ~= nil then
-			-- val.fg = vim.fn.synIDattr(vim.fn.hlID(name), "fg")
-			val.fg = "grey"
-		else
-			val.fg = "grey"
-		end
-		val.bg = "bg"
-		val.style = "bold"
-		return val
-	end,
-	right_sep = " "
-}
-
--- fileSize
-components.active[3][3] = {
-	provider = "file_size",
-	enabled = function()
-		return vim.fn.getfsize(vim.fn.expand("%:t")) > 0
-	end,
-	hl = {
-		fg = "grey",
-		bg = "bg",
-		style = "bold"
-	},
-	right_sep = " "
-}
---
--- -- fileFormat
--- components.active[3][4] = {
---   provider = function() return '' .. vim.bo.fileformat:upper() .. '' end,
---   hl = {
---     fg = 'white',
---     bg = 'bg',
---     style = 'bold'
---   },
---   right_sep = ' '
--- }
---
--- fileEncode
-components.active[3][4] = {
-	provider = "file_encoding",
-	hl = {
-		fg = "grey",
-		bg = "bg",
-		style = "bold"
-	},
-	right_sep = " "
-}
-
--- rubyVersion
--- components.active[3][7] = {
---   provider = function()
---     return ' '..vim.fn['rvm#string']()
---   end,
---   hl = {
---     fg = 'red',
---     bg = 'bg',
---     style = 'bold'
---   },
---   right_sep = ' '
--- }
-
--- lineInfo
-components.active[3][5] = {
-	provider = "position",
-	hl = {
-		fg = "grey",
-		bg = "bg",
-		style = "bold"
-	},
-	right_sep = " "
-}
-
--- linePercent
-components.active[3][6] = {
-	provider = "line_percentage",
-	hl = {
-		fg = "grey",
-		bg = "bg",
-		style = "bold"
-	},
-	right_sep = " "
-}
---
--- -- scrollBar
--- components.active[3][8] = {
---   provider = 'scroll_bar',
---   hl = {
---     fg = 'yellow',
---     bg = 'bg',
---   },
--- }
---
--- INACTIVE
-
--- fileType
-components.inactive[3][7] = {
-	provider = "file_type",
-	hl = {
-		fg = "black",
-		bg = "cyan",
-		style = "bold"
-	},
-	left_sep = {
-		str = " ",
-		hl = {
-			fg = "NONE",
-			bg = "cyan"
-		}
-	},
-	right_sep = { {
-		str = " ",
-		hl = {
-			fg = "NONE",
-			bg = "cyan"
-		}
-	}, " " }
-}
-
-require("feline").setup({
-	-- theme = colors,
-	-- theme = "tokyonight",
-	default_bg = colors.bg,
-	default_fg = colors.fg,
-	vi_mode_colors = vi_mode_colors,
-	components = components,
-	force_inactive = force_inactive
-})
