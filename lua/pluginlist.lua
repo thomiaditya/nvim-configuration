@@ -30,6 +30,11 @@ local plugins = {
 	},
 
 	{
+		name = "toggleterm",
+		packer = {"akinsho/toggleterm.nvim"}
+	},
+
+	{
 		name = "telescope-file-browser",
 		packer = {"nvim-telescope/telescope-file-browser.nvim"}
 	},
