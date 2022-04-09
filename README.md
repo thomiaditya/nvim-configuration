@@ -8,7 +8,7 @@ Neovim is such a great tool that I use until the end of the day (if I may). But 
 
 ## Appendix
 
-Neovim and me have just got married!
+Neovim and I have just got married!
 
 
 ## Documentation
