@@ -1,9 +1,23 @@
-# NEOVIM CONFIGURATION V1
 
-Just neovim configuration with style.
+# "Not really a stylist" Stylist Neovim Configuration
 
-## Requirements
+Neovim is such a great tool that I use until the end of the day (if I may). But you know, everyone want a better style for their tools, and this is my best (dont judge me if it doesnt).
 
-1. Python3
-2. Nodejs 16 or newer
-3. Prettier
+
+
+
+## Appendix
+
+Neovim and me have just got married!
+
+
+## Documentation
+
+![Dashboard](https://raw.githubusercontent.com/thomiaditya/nvim-configuration/main/docs/dashboard.png)
+
+![Telescope](https://raw.githubusercontent.com/thomiaditya/nvim-configuration/main/docs/telescope.png)
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+

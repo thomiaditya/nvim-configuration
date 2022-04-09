@@ -30,20 +30,21 @@ local colors = {
 }
 
 local vi_mode_colors = {
-    NORMAL = colors.green,
-    INSERT = colors.red,
-    VISUAL = colors.magenta,
-    OP = colors.green,
-    BLOCK = colors.blue,
-    REPLACE = colors.violet,
-    ['V-REPLACE'] = colors.violet,
-    ENTER = colors.cyan,
-    MORE = colors.cyan,
-    SELECT = colors.orange,
-    COMMAND = colors.green,
-    SHELL = colors.green,
-    TERM = colors.green,
-    NONE = colors.yellow
+    NORMAL = "green",
+    OP = "green",
+    INSERT = "red",
+    VISUAL = "skyblue",
+    LINES = "skyblue",
+    BLOCK = "skyblue",
+    REPLACE = "violet",
+    ["V-REPLACE"] = "violet",
+    ENTER = "cyan",
+    MORE = "cyan",
+    SELECT = "orange",
+    COMMAND = "green",
+    SHELL = "green",
+    TERM = "green",
+    NONE = "yellow"
 }
 
 -- Create components container.
@@ -75,10 +76,15 @@ local contents = {
         provider = function()
             return " ● "
         end,
-        hl = {
-            fg = vi_mode_utils.get_mode_color(), 
-            bg = colors.bg,
-        },
+        hl = function()
+            local val = {
+                name = vi_mode_utils.get_mode_highlight_name(),
+                fg = vi_mode_utils.get_mode_color(),
+                bg = colors.bg,
+                style = 'bold'
+            }
+            return val
+        end,
     },
 
     file_info = {
@@ -235,6 +241,7 @@ table.insert(components.active[3], contents.file_type)
 table.insert(components.active[3], contents.separator(" "))
 table.insert(components.active[3], contents.symbols)
 table.insert(components.active[3], contents.separator(" "))
+
 -- Starting feline
 local feline = require'feline'
 
@@ -242,7 +249,7 @@ feline.setup {
     default_bg = colors.bg,
     default_fg = colors.fg,
     components = components,
-    -- vi_mode_colors = vi_mode_colors,
+    vi_mode_colors = vi_mode_colors,
     force_inactive = {
         filetypes = {
             'packer',
