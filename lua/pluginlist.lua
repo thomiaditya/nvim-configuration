@@ -19,6 +19,11 @@ local plugins = {
 	},
 
 	{
+		name = "nightfox",
+		packer = {"EdenEast/nightfox.nvim"}
+	},
+
+	{
 		name = "tokyonight-theme",
 		packer = {"folke/tokyonight.nvim"}
 	},
