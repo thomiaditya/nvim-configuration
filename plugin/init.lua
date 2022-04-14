@@ -5,7 +5,8 @@ require("utils.loadpacker")
 local configs = {
 	-- Theme
 	-- "tokyonight-theme",
-	"nightfox",
+	-- "nightfox",
+	"dracula",
 
 	-- Plugins
 	"telescope", -- Telescope.nvim is a highly extendable fuzzy finder over lists.
