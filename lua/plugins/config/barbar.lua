@@ -58,7 +58,7 @@ vim.g.bufferline = {
 
   -- Excludes buffers from the tabline
   exclude_ft = {},
-  exclude_name = {},
+  exclude_name = {'dashboard'},
 
   -- Enable/disable icons
   -- if set to 'numbers', will show buffer index in the tabline
