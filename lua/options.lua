@@ -8,14 +8,13 @@ opt.syntax = "on"
 opt.termguicolors = true
 
 -- Autocmd for centered scrolloff
--- vim.cmd[[
---   augroup VCenterCursor
---     au!
---     au BufEnter,WinEnter,WinNew,VimResized *,*.*
---           \ let &scrolloff=winheight(win_getid())/2
---   augroup END
--- ]]
-opt.scrolloff = 10
+vim.cmd[[
+  augroup VCenterCursor
+    au!
+    au BufEnter,WinEnter,WinNew,VimResized *,*.*
+          \ let &scrolloff=winheight(win_getid())/2
+  augroup END
+]]
 
 -- Indentation
 opt.expandtab = true
