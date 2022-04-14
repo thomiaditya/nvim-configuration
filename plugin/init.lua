@@ -13,7 +13,7 @@ local configs = {
 	"dashboard", -- A minimalist dashboard for Neovim, inspired by doom-emacs.
   "treesitter", -- Treesitter is a plugin for Neovim that provides syntax-aware indentation and navigation.
 	"toggleterm", -- Toggle between terminal and neovim.
-	"barbar", -- A plugin for Neovim that provides a bar at the top of the screen.
+	"barbar", 
 	"nvim-cmp", -- A plugin for Neovim that provides a command-mode prompt.
 	"autopairs", -- A plugin for Neovim that provides automatic pair insertion.
 	"move-nvim", -- A plugin for Neovim that provides movement commands.

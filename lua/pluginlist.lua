@@ -141,6 +141,11 @@ local plugins = {
 		packer = {"glepnir/dashboard-nvim"}
 	},
 
+	-- {
+	--   name = "tabline",
+	--   packer = {"kdheepak/tabline.nvim", requires = {{"kyazdani42/nvim-web-devicons", opt = true}}}
+	-- },
+
 	{
 		name = "barbar",
 		packer = {"romgrk/barbar.nvim", requires = {"kyazdani42/nvim-web-devicons"}}
