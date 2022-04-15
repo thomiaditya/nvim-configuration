@@ -18,12 +18,12 @@ vim.cmd[[
 
 -- Indentation
 opt.expandtab = true
-opt.shiftwidth = 2
-opt.softtabstop = 2
+-- opt.shiftwidth = 2
 opt.tabstop = 2
+opt.softtabstop = 2
 opt.autoindent = true
 
-vim.cmd [[filetype plugin indent on]]
+-- vim.cmd [[filetype plugin indent on]]
 
 -- Searching
 opt.hlsearch = true
