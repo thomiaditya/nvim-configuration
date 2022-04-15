@@ -10,7 +10,7 @@ local plugins = {
 	{
 		name = "packer",
 		packer = {"wbthomason/packer.nvim"}
- 	},
+	},
 
 	-- Theme plugins
 	{
@@ -70,10 +70,10 @@ local plugins = {
 		packer = {"windwp/nvim-autopairs"}
 	},
 
-  {
-    name = "vim-polyglot",
-    packer = {"sheerun/vim-polyglot"}
-  },
+	{
+		name = "vim-polyglot",
+		packer = {"sheerun/vim-polyglot"}
+	},
 
 	{
 		name = "indent-blankline",
