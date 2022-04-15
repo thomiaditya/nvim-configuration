@@ -11,7 +11,7 @@ local configs = {
 	-- Plugins
 	"telescope", -- Telescope.nvim is a highly extendable fuzzy finder over lists.
 	"dashboard", -- A minimalist dashboard for Neovim, inspired by doom-emacs.
-  "treesitter", -- Treesitter is a plugin for Neovim that provides syntax-aware indentation and navigation.
+	"treesitter", -- Treesitter is a plugin for Neovim that provides syntax-aware indentation and navigation.
 	"toggleterm", -- Toggle between terminal and neovim.
 	"barbar", 
 	"nvim-cmp", -- A plugin for Neovim that provides a command-mode prompt.
@@ -27,7 +27,7 @@ local configs = {
 
 -- Then do loop for all configs spesified above.
 for _, config in pairs(configs) do
- 	local err, _ = pcall(require, "plugins.config." .. config)
+	local err, _ = pcall(require, "plugins.config." .. config)
 	if not err then
 		print("Error: " .. config)
 	end
