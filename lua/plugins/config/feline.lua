@@ -5,31 +5,31 @@ end
 local lsp = require 'feline.providers.lsp'
 local vi_mode_utils = require 'feline.providers.vi_mode'
 
--- local colors = {
---   bg = "#68217A",
---   fg = "#abb2bf",
---   red = "#e06c75",
---   orange = "#d19a66",
---   yellow = "#e5c07b",
---   green = "#98c379",
---   aqua = "#61afef",
---   blue = "#7078BD",
---   purple = "#AB65B3",
---   magenta = "#E8283B",
---   cyan = "#61afef",
---   white = "#BEC7F2",
---   black = "#1d2021",
---   lightblack = "#282a36",
---   lightred = "#e06c75",
---   lightgreen = "#98c379",
---   lightyellow = "#e5c07b",
---   lightblue = "#61afef",
---   lightmagenta = "#d33682",
---   lightcyan = "#61afef",
---   lightwhite = "#f8f8f2",
--- }
+local colors = {
+  bg = "#68217A",
+  fg = "#abb2bf",
+  red = "#e06c75",
+  orange = "#d19a66",
+  yellow = "#e5c07b",
+  green = "#98c379",
+  aqua = "#61afef",
+  blue = "#7078BD",
+  purple = "#AB65B3",
+  magenta = "#E8283B",
+  cyan = "#61afef",
+  white = "#BEC7F2",
+  black = "#1d2021",
+  lightblack = "#282a36",
+  lightred = "#e06c75",
+  lightgreen = "#98c379",
+  lightyellow = "#e5c07b",
+  lightblue = "#61afef",
+  lightmagenta = "#d33682",
+  lightcyan = "#61afef",
+  lightwhite = "#f8f8f2",
+}
 
-local colors = require("dracula").colors()
+-- local colors = require("dracula").colors()
 
 local vi_mode_colors = {
   NORMAL = "green",

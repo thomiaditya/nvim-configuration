@@ -15,7 +15,7 @@ local plugins = {
 	-- Theme plugins
 	{
 		name = "dracula",
-		packer = {"Mofiqul/dracula.nvim", as = "dracula"}
+		packer = {"dracula/vim", as = "dracula"},
 	},
 
 	{
