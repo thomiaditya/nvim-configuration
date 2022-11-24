@@ -1,7 +1,7 @@
 
 # "Not really a stylist" Stylist Neovim Configuration
 
-Neovim is such a great tool that I use until the end of the day (if I may). But you know, everyone want a better style for their tools, and this is my best (dont judge me if it doesnt).
+Neovim is such a great tool that I use until the end of the day (if I may). But you know, everyone want a better style for their tools, and this is my best.
 
 
 
